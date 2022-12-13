@@ -21,18 +21,20 @@ public class tomsMain {
 	private static String LOGJ_PATH = null;
 	
 	public static void main(String[] args) {
-		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-		AppConfig.setPID(getPID() + "");
-		wrtiePID(AppConfig.getPID());
 		
 		currentDir = System.getProperty("user.dir");
 		File f = new File(currentDir);
 		currentDir = f.getParent().toString();
-
-		LOGJ_PATH = currentDir + "/conf/logbackToms.xml";
+		
+		LOGJ_PATH = currentDir + "/conf/logbackTman.xml";
 		System.setProperty("logback.configurationFile", LOGJ_PATH);
 		
 		Logger logger = LoggerFactory.getLogger(tomsMain.class);
+		
+		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+		AppConfig.setPID(getPID() + "");
+		wrtiePID(AppConfig.getPID());
+		
 		
 		logger.info(">> Process ID :" + AppConfig.getPID());
 		logger.info(">> Home Dir :" + AppConfig.currentDir);
