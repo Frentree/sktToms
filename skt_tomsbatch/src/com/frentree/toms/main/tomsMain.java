@@ -41,8 +41,8 @@ public class tomsMain {
 		
 		queue = new QueueStaticPool().getJobQueue();
 		
-		TomsJobs toms = new TomsJobs();
-		// TmanJobs tman = new TmanJobs(); 
+		// TomsJobs toms = new TomsJobs();
+		TmanJobs tman = new TmanJobs(); 
 	}
 	
 	public static long getPID() {
