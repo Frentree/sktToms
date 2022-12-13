@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.frentree.pimc.database.ibatis.vo.ServerInfoVo;
 import com.frentree.pimc.database.ibatis.vo.targetUserVo;
+import com.frentree.pimc.database.ibatis.vo.tomsVo;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.skyun.recon.util.database.ibatis.SqlMapInstance;
 
@@ -29,13 +30,13 @@ public class DBInsertTable {
 	public void setDBInsertTable(String trid, Object obj) {
 
 		try {
-			/*if (obj instanceof tomsVo) {
+			if (obj instanceof tomsVo) {
 				this.sqlMap.openSession().insert(trid, (tomsVo) obj);
 				ret = 1;
 				sexception = "OK";
 			}  else {
 				logger.info("unknown data type " + obj.getClass().getName());
-			}*/
+			}
 			if (obj instanceof ServerInfoVo) {
 				this.sqlMap.openSession().insert(trid, (ServerInfoVo) obj);
 				ret = 1;
