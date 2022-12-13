@@ -38,9 +38,9 @@
 		UPDATE PI_TARGET_USER T 
 			LEFT OUTER JOIN PI_AP_SERVER AP ON T.AP_NO = AP.AP_NO AND AP.IS_SERVER = 1 
 		SET 
-			USER_NO = #bpInfraUserId#
+			INFRA_MANAGER = #bpInfraUserId#
 		WHERE TARGET_ID = #target_id#
-			AND USER_NO = ''
+			AND INFRA_MANAGER = ''
 	</update>
 	
 	<update id="setTargetUserBpApp" parameterClass="com.frentree.pimc.database.ibatis.vo.targetUserVo">
@@ -56,8 +56,8 @@
 		UPDATE PI_TARGET_USER T 
 			LEFT OUTER JOIN PI_AP_SERVER AP ON T.AP_NO = AP.AP_NO AND AP.IS_SERVER = 1 
 		SET 
-			INFRA_MANAGER = #sktInfraUserId#
+			USER_NO = #sktInfraUserId#
 		WHERE TARGET_ID = #target_id#
-			AND INFRA_MANAGER = ''
+			AND USER_NO = ''
 	</update>
 </sqlMap>
