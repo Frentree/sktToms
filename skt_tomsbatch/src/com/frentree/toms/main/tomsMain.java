@@ -21,25 +21,26 @@ public class tomsMain {
 	private static String LOGJ_PATH = null;
 	
 	public static void main(String[] args) {
-		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-		AppConfig.setPID(getPID() + "");
-		wrtiePID(AppConfig.getPID());
-		
-		currentDir = System.getProperty("user.dir");
-		File f = new File(currentDir);
-		currentDir = f.getParent().toString();
-
-		LOGJ_PATH = currentDir + "/conf/logbackToms.xml";
-		System.setProperty("logback.configurationFile", LOGJ_PATH);
-		
-		Logger logger = LoggerFactory.getLogger(tomsMain.class);
-		
-		logger.info(">> Process ID :" + AppConfig.getPID());
-		logger.info(">> Home Dir :" + AppConfig.currentDir);
-		logger.info(">> System Version  2022-11-16");
-		logger.info(">> Toms Update");
-		
-		queue = new QueueStaticPool().getJobQueue();
+	    currentDir = System.getProperty("user.dir");
+	    File f = new File(currentDir);
+	    currentDir = f.getParent().toString();
+	    
+	    LOGJ_PATH = currentDir + "/conf/logbackTman.xml";
+	    System.setProperty("logback.configurationFile", LOGJ_PATH);
+	    
+	    Logger logger = LoggerFactory.getLogger(tomsMain.class);
+	    
+	    Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+	    AppConfig.setPID(getPID() + "");
+	    wrtiePID(AppConfig.getPID());
+	    
+	    
+	    logger.info(">> Process ID :" + AppConfig.getPID());
+	    logger.info(">> Home Dir :" + AppConfig.currentDir);
+	    logger.info(">> System Version  2022-11-16");
+	    logger.info(">> Toms Update");
+	    
+	    queue = new QueueStaticPool().getJobQueue();
 		
 		TomsJobs toms = new TomsJobs();
 		// TmanJobs tman = new TmanJobs(); 
