@@ -34,10 +34,7 @@ public class DBInsertTable {
 				this.sqlMap.openSession().insert(trid, (tomsVo) obj);
 				ret = 1;
 				sexception = "OK";
-			}  else {
-				logger.info("unknown data type " + obj.getClass().getName());
-			}
-			if (obj instanceof ServerInfoVo) {
+			}else if (obj instanceof ServerInfoVo) {
 				this.sqlMap.openSession().insert(trid, (ServerInfoVo) obj);
 				ret = 1;
 				sexception = "OK";
@@ -45,8 +42,7 @@ public class DBInsertTable {
 				this.sqlMap.openSession().insert(trid, (targetUserVo) obj);
 				ret = 1;
 				sexception = "OK";
-			}
-			else {
+			}else {
 				logger.info("unknown data type " + obj.getClass().getName());
 			}
 
