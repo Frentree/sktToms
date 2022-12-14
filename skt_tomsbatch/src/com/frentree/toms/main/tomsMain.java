@@ -26,7 +26,7 @@ public class tomsMain {
 		File f = new File(currentDir);
 		currentDir = f.getParent().toString();
 		
-		LOGJ_PATH = currentDir + "/conf/logbackTman.xml";
+		LOGJ_PATH = currentDir + "/conf/logbackTmanUpdate.xml";
 		System.setProperty("logback.configurationFile", LOGJ_PATH);
 		
 		Logger logger = LoggerFactory.getLogger(tomsMain.class);
