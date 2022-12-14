@@ -1,5 +1,6 @@
 package com.frentree.tomsjob;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,7 +38,7 @@ public class TmanJobs {
 	}
 	
 	public void tmanData() {
-		String url = AppConfig.getProperty("config.tman.url");
+		/*String url = AppConfig.getProperty("config.tman.url");
 		String key = AppConfig.getProperty("config.tman.key");
 		String curlurl = String.format(url);
 		
@@ -64,41 +65,9 @@ public class TmanJobs {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
-
-	}
-
-
-	private String getDate(String s) {
-
-		Timestamp timestamp = new Timestamp(Long.parseLong(s) * 1000);
-		Date date = new Date(timestamp.getTime());
-
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
-		return simpleDateFormat.format(timestamp);
-
-	}
-
-	private void tmanAll(ServerInfoCo g) {
-		/*tomsVo v = new tomsVo();
-		v.setValue(g);*/
-		
-		ServerInfoVo v = new ServerInfoVo(g);
+		}*/
 		List<targetUserVo> stList;
 		try {
-			// 조회
-			List<tomsVo> tList = this.sqlMap.queryForList("query.selectTmanIp", v);
-			
-			if(tList.size() < 1) {
-				// 삽입(Insert)
-				logger.info("insert_data >>>> " + v.toString());
-				tr.setDBInsertTable("insert.setTman", v);
-			} else {
-				// 업데이트(Update)
-				logger.info("update_data >>>> " + v.toString());
-				tr.setDBInsertTable("update.setTmanUpdate", v);
-			}
-			
 			stList = this.sqlMap.queryForList("query.selectTmanManager");
 			
 			for(targetUserVo stVo : stList) {
@@ -135,15 +104,23 @@ public class TmanJobs {
 				}
 			}
 			
-			
-		}catch (Exception e) {
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if (g == null) {
-			logger.info("TomsAll Data is null ____");
-			return;
-		}
+
+	}
+
+
+	private String getDate(String s) {
+
+		Timestamp timestamp = new Timestamp(Long.parseLong(s) * 1000);
+		Date date = new Date(timestamp.getTime());
+
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+		return simpleDateFormat.format(timestamp);
+
 	}
 
 
