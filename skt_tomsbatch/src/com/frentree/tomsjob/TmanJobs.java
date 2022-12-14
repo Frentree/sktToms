@@ -99,7 +99,7 @@ public class TmanJobs {
 				tr.setDBInsertTable("update.setTmanUpdate", v);
 			}
 			
-			stList = this.sqlMap.queryForList("query.selectTmanManager");
+			/*stList = this.sqlMap.queryForList("query.selectTmanManager");
 			
 			for(targetUserVo stVo : stList) {
 				
@@ -133,7 +133,7 @@ public class TmanJobs {
 					vo.setTarget_id(stVo.getTarget_id());
 					tr.setDBInsertTable("update.setTargetUserSKTInfra", vo);
 				}
-			}
+			}*/
 			
 			
 		}catch (Exception e) {
