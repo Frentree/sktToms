@@ -40,7 +40,7 @@
 		SET 
 			INFRA_MANAGER = #bpInfraUserId#
 		WHERE TARGET_ID = #target_id#
-			AND INFRA_MANAGER = ''
+			AND INFRAUSERFLAG IS NULL
 	</update>
 	
 	<update id="setTargetUserBpApp" parameterClass="com.frentree.pimc.database.ibatis.vo.targetUserVo">
@@ -49,7 +49,7 @@
 		SET 
 			SERVICE_USER = #bpAppUserId#
 		WHERE TARGET_ID = #target_id#
-			AND SERVICE_USER = ''
+			AND SERVICEUSERFLAG IS NULL
 	</update>
 	
 	<update id="setTargetUserSKTInfra" parameterClass="com.frentree.pimc.database.ibatis.vo.targetUserVo">
@@ -58,6 +58,6 @@
 		SET 
 			USER_NO = #sktInfraUserId#
 		WHERE TARGET_ID = #target_id#
-			AND USER_NO = ''
+			AND USERFLAG IS NULL
 	</update>
 </sqlMap>
