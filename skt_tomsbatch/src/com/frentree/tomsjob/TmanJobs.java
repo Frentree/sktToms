@@ -98,9 +98,9 @@ public class TmanJobs {
 				}
 				
 				if(infra_manager!=null && !infra_manager.equals("")) {
-					vo.setSktInfraUserId(infra_manager);
+					vo.setSktAppUserId(infra_manager);
 					vo.setTarget_id(stVo.getTarget_id());
-					tr.setDBInsertTable("update.setTargetUserSKTInfra", vo);
+					tr.setDBInsertTable("update.setTargetUserSKTApp", vo);
 				}
 			}
 			
