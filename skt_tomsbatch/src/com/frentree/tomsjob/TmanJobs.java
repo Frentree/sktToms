@@ -77,7 +77,7 @@ public class TmanJobs {
 				String service_nm = stVo.getSvcNm();
 				String user_no = stVo.getBpInfraUserId();
 				String service_user = stVo.getBpAppUserId(); 
-				String infra_manager = stVo.getSktInfraUserId();
+				String infra_manager = stVo.getSktAppUserId();
 				
 				if(service_nm!=null && !service_nm.equals("")) {
 					vo.setSvcNm(service_nm);

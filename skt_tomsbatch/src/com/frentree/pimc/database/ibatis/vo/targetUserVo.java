@@ -8,6 +8,7 @@ public class targetUserVo {
 	private String bpInfraUserId = "";
 	private String bpAppUserId = "";
 	private String sktInfraUserId = "";
+	private String sktAppUserId = "";
 	
 	public String getTarget_id() {
 		return target_id;
@@ -51,12 +52,17 @@ public class targetUserVo {
 	public void setSktInfraUserId(String sktInfraUserId) {
 		this.sktInfraUserId = sktInfraUserId;
 	}
-	
+	public String getSktAppUserId() {
+		return sktAppUserId;
+	}
+	public void setSktAppUserId(String sktAppUserId) {
+		this.sktAppUserId = sktAppUserId;
+	}
 	@Override
 	public String toString() {
 		return "targetUserVo [target_id=" + target_id + ", hostNm=" + hostNm + ", ip=" + ip + ", svcNm=" + svcNm
 				+ ", bpInfraUserId=" + bpInfraUserId + ", bpAppUserId=" + bpAppUserId + ", sktInfraUserId="
-				+ sktInfraUserId + "]";
+				+ sktInfraUserId + ", sktAppUserId=" + sktAppUserId + "]";
 	}
-
+	
 }

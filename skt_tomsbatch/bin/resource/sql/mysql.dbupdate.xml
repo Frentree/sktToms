@@ -56,7 +56,7 @@
 		UPDATE PI_TARGET_USER T 
 			LEFT OUTER JOIN PI_AP_SERVER AP ON T.AP_NO = AP.AP_NO AND AP.IS_SERVER = 1 
 		SET 
-			USER_NO = #sktInfraUserId#
+			USER_NO = #sktAppUserId#
 		WHERE TARGET_ID = #target_id#
 			AND USERFLAG IS NULL
 	</update>
