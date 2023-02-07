@@ -6,11 +6,11 @@
 	<insert id="setToms" parameterClass="com.frentree.pimc.database.ibatis.vo.tomsVo">
 		INSERT INTO skt_toms
 		(assetNoSch,assetNo,assetNoOld,confNo,assetStatCd,assetStatNm,modelNm,svcDomainNo,svcDomainNm,svcNo,svcNm,opDeptId,opDeptNm,bizDeptId,bizDeptNm,
-			bpInfraUserId,bpInfraUserNm,bpAppUserId,bpAppUserNm,sktInfraUserId,sktInfraUserNm,erpNo,erpAcqSdt,mainIpAddr,hostNm,divLCd,divLNm,divMCd,divMNm,
+			bpInfraUserId,bpInfraUserNm,bpAppUserId,bpAppUserNm,sktInfraUserId,sktInfraUserNm,sktAppUserId,sktAppUserNm,erpNo,erpAcqSdt,mainIpAddr,hostNm,divLCd,divLNm,divMCd,divMNm,
 			divSCd,divSNm,srcTypeCd,srcTypeNm,osNm,osVer,regdate)
 		VALUES
 		(#assetNoSch#,#assetNo#,#assetNoOld#,#confNo#,#assetStatCd#,#assetStatNm#,#modelNm#,#svcDomainNo#,#svcDomainNm#,#svcNo#,#svcNm#,#opDeptId#,#opDeptNm#,#bizDeptId#,#bizDeptNm#,
-			#bpInfraUserId#,#bpInfraUserNm#,#bpAppUserId#,#bpAppUserNm#,#sktInfraUserId#,#sktInfraUserNm#,#erpNo#,#erpAcqSdt#,#mainIpAddr#,#hostNm#,#divLCd#,#divLNm#,#divMCd#,#divMNm#,
+			#bpInfraUserId#,#bpInfraUserNm#,#bpAppUserId#,#bpAppUserNm#,#sktInfraUserId#,#sktInfraUserNm#,#sktAppUserId#,#sktAppUserNm#,#erpNo#,#erpAcqSdt#,#mainIpAddr#,#hostNm#,#divLCd#,#divLNm#,#divMCd#,#divMNm#,
 			#divSCd#,#divSNm#,#srcTypeCd#,#srcTypeNm#,#osNm#,#osVer#,now())
 		ON DUPLICATE KEY UPDATE
 		assetNoOld=#assetNoOld#,
@@ -32,6 +32,8 @@
 		bpAppUserNm=#bpAppUserNm#,
 		sktInfraUserId=#sktInfraUserId#,
 		sktInfraUserNm=#sktInfraUserNm#,
+		sktAppUserId=#sktAppUserId#,
+		sktAppUserNm=#sktAppUserNm#,
 		erpNo=#erpNo#,
 		erpAcqSdt=#erpAcqSdt#,
 		mainIpAddr=#mainIpAddr#,

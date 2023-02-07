@@ -45,6 +45,10 @@ public class tomsVo {
 	private String sktInfraUserId;
 	//SKT인프라운영자
 	private String sktInfraUserNm;
+	// 23.01.20 추가
+	private String sktAppUserId;
+	// 23.01.20 추가
+	private String sktAppUserNm;
 	//ERO_NO(자산관리번호)
 	private String erpNo;
 	//ERP_NO취득일자
@@ -294,6 +298,18 @@ public class tomsVo {
 	public void setTarget_id(String target_id) {
 		this.target_id = target_id;
 	}
+	public String getSktAppUserId() {
+		return sktAppUserId;
+	}
+	public void setSktAppUserId(String sktAppUserId) {
+		this.sktAppUserId = sktAppUserId;
+	}
+	public String getSktAppUserNm() {
+		return sktAppUserNm;
+	}
+	public void setSktAppUserNm(String sktAppUserNm) {
+		this.sktAppUserNm = sktAppUserNm;
+	}
 	
 	public void setValue(tomsCo t) {
 		this.assetNoSch = t.getAssetNoSch();
@@ -317,6 +333,8 @@ public class tomsVo {
 		this.bpInfraUserNm = t.getBpInfraUserNm();
 		this.sktInfraUserId = t.getSktInfraUserId();
 		this.sktInfraUserNm = t.getSktInfraUserNm();
+		this.sktAppUserId = t.getSktAppUserId();
+		this.sktAppUserNm = t.getSktAppUserNm();
 		this.erpNo = t.getErpNo();
 		this.erpAcqSdt = t.getErpAcqSdt();
 		this.mainIpAddr = t.getMainIpAddr();

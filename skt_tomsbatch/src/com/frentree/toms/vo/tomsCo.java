@@ -68,6 +68,12 @@ public class tomsCo {
 	@SerializedName("sktInfraUserNm")
 	private String sktInfraUserNm;
 	
+	@SerializedName("sktAppUserId")
+	private String sktAppUserId;
+	
+	@SerializedName("sktAppUserNm")
+	private String sktAppUserNm;
+	
 	@SerializedName("erpNo")
 	private String erpNo;
 	
@@ -390,5 +396,22 @@ public class tomsCo {
 	public void setOsVer(String osVer) {
 		this.osVer = osVer;
 	}
+
+	public String getSktAppUserId() {
+		return sktAppUserId;
+	}
+
+	public void setSktAppUserId(String sktAppUserId) {
+		this.sktAppUserId = sktAppUserId;
+	}
+
+	public String getSktAppUserNm() {
+		return sktAppUserNm;
+	}
+
+	public void setSktAppUserNm(String sktAppUserNm) {
+		this.sktAppUserNm = sktAppUserNm;
+	}
+	
 	
 }
