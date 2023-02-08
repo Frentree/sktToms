@@ -327,8 +327,8 @@ public class tomsVo {
 		this.opDeptNm = t.getOpDeptNm();
 		this.bizDeptId = t.getBizDeptId();
 		this.bizDeptNm = t.getBizDeptNm();
-		this.bpAppUserId = t.getBizDeptId();
-		this.bpAppUserNm = t.getBizDeptNm();
+		this.bpAppUserId = t.getBpAppUserId();
+		this.bpAppUserNm = t.getBpAppUserNm();
 		this.bpInfraUserId = t.getBpInfraUserId();
 		this.bpInfraUserNm = t.getBpInfraUserNm();
 		this.sktInfraUserId = t.getSktInfraUserId();
