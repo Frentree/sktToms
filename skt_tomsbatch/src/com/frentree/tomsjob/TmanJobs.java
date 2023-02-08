@@ -94,9 +94,11 @@ public class TmanJobs {
 				logger.info("insert_data >>>> " + v.toString());
 				tr.setDBInsertTable("insert.setTman", v);
 			} else {
-				// 업데이트(Update)
-				logger.info("update_data >>>> " + v.toString());
-				tr.setDBInsertTable("update.setTmanUpdate", v);
+				if(v.getInfraType().equals("TiDC")) {
+					// 업데이트(Update)
+					logger.info("update_data >>>> " + v.toString());
+					tr.setDBInsertTable("update.setTmanUpdate", v);
+				}
 			}
 			
 			/*stList = this.sqlMap.queryForList("query.selectTmanManager");
