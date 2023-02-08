@@ -10,19 +10,4 @@
 		WHERE MAINIPADDR = #Ip#
 		  AND HOSTNM = #HostName#
 	</select>
-	
-	<select id="selectTmanManager" resultClass="com.frentree.pimc.database.ibatis.vo.targetUserVo">
-		SELECT 
-			T.TARGET_ID, 
-			ST.HOSTNM,
-			ST.MAINIPADDR AS IP, 
-			ST.SVCNM,
-			(SELECT U.USER_NO FROM pi_user U WHERE U.user_no = ST.BPINFRAUSERID AND U.user_name = ST.BPINFRAUSERNM) AS BPINFRAUSERID, 
-			(SELECT U.USER_NO FROM pi_user U WHERE U.user_no = ST.BPAPPUSERID) AS BPAPPUSERID, 
-			(SELECT U.USER_NO FROM pi_user U WHERE U.user_no = ST.SKTINFRAUSERID) AS SKTINFRAUSERID
-		FROM pi_ap_server AP, skt_toms ST
-			LEFT OUTER JOIN pi_targets T ON ST.HOSTNM = T.name
-		WHERE T.AP_NO = AP.AP_NO
-		 AND AP.IS_SERVER = 1
-	</select>
 </sqlMap>

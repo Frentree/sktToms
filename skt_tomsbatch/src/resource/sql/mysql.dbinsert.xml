@@ -3,59 +3,13 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="insert">
-	<insert id="setToms" parameterClass="com.frentree.pimc.database.ibatis.vo.tomsVo">
-		INSERT INTO skt_toms
-		(assetNoSch,assetNo,assetNoOld,confNo,assetStatCd,assetStatNm,modelNm,svcDomainNo,svcDomainNm,svcNo,svcNm,opDeptId,opDeptNm,bizDeptId,bizDeptNm,
-			bpInfraUserId,bpInfraUserNm,bpAppUserId,bpAppUserNm,sktInfraUserId,sktInfraUserNm,erpNo,erpAcqSdt,mainIpAddr,hostNm,divLCd,divLNm,divMCd,divMNm,
-			divSCd,divSNm,srcTypeCd,srcTypeNm,osNm,osVer,regdate)
-		VALUES
-		(#assetNoSch#,#assetNo#,#assetNoOld#,#confNo#,#assetStatCd#,#assetStatNm#,#modelNm#,#svcDomainNo#,#svcDomainNm#,#svcNo#,#svcNm#,#opDeptId#,#opDeptNm#,#bizDeptId#,#bizDeptNm#,
-			#bpInfraUserId#,#bpInfraUserNm#,#bpAppUserId#,#bpAppUserNm#,#sktInfraUserId#,#sktInfraUserNm#,#erpNo#,#erpAcqSdt#,#mainIpAddr#,#hostNm#,#divLCd#,#divLNm#,#divMCd#,#divMNm#,
-			#divSCd#,#divSNm#,#srcTypeCd#,#srcTypeNm#,#osNm#,#osVer#,now())
-		ON DUPLICATE KEY UPDATE
-		assetNoOld=#assetNoOld#,
-		confNo=#confNo#,
-		assetStatCd=#assetStatCd#,
-		assetStatNm=#assetStatNm#,
-		modelNm=#modelNm#,
-		svcDomainNo=#svcDomainNo#,
-		svcDomainNm=#svcDomainNm#,
-		svcNo=#svcNo#,
-		svcNm=#svcNm#,
-		opDeptId=#opDeptId#,
-		opDeptNm=#opDeptNm#,
-		bizDeptId=#bizDeptId#,
-		bizDeptNm=#bizDeptNm#,
-		bpInfraUserId=#bpInfraUserId#,
-		bpInfraUserNm=#bpInfraUserNm#,
-		bpAppUserId=#bpAppUserId#,
-		bpAppUserNm=#bpAppUserNm#,
-		sktInfraUserId=#sktInfraUserId#,
-		sktInfraUserNm=#sktInfraUserNm#,
-		erpNo=#erpNo#,
-		erpAcqSdt=#erpAcqSdt#,
-		mainIpAddr=#mainIpAddr#,
-		hostNm=#hostNm#,
-		divLCd=#divLCd#,
-		divLNm=#divLNm#,
-		divMCd=#divMCd#,
-		divMNm=#divMNm#,
-		divSCd=#divSCd#,
-		divSNm=#divSNm#,
-		srcTypeCd=#srcTypeCd#,
-		srcTypeNm=#srcTypeNm#,
-		osNm=#osNm#,
-		osVer=#osVer#,
-		regdate=NOW()
-	</insert>
-	
 	<insert id="setTman" parameterClass="com.frentree.pimc.database.ibatis.vo.ServerInfoVo">
 		INSERT INTO skt_toms
 		(assetNoSch,assetStatCd,assetStatNm,modelNm,mnftNm,svcDomainNo,svcDomainNm,svcNo,svcNm,
-			bpInfraUserId,bpInfraUserNm,bpAppUserId,bpAppUserNm,sktInfraUserId,sktInfraUserNm,mainIpAddr,hostNm,osVer,regdate)
+			bpInfraUserId,bpInfraUserNm,bpAppUserId,bpAppUserNm,sktAppUserId,sktAppUserNm,mainIpAddr,hostNm,osVer,regdate)
 		VALUES
 		(#ciNo#,#HwStatCode#,#HwStatName#,#ModelName#,#VendorName#,#svcL1Code#,#svcL1Name#,#svcL2Code#,#svcL2Name#,
-			#BsnsPersonEmpNo#,#BsnsPersonEmpNm#,#DevPersonEmpNo#,#DevPersonEmpNm#,#InfraPersonEmpNo#,#InfraPersonEmpNm#,#Ip#,#hostName#,#osVer#,now())
+			#InfraPersonEmpNo#,#InfraPersonEmpNm#,#DevPersonEmpNo#,#DevPersonEmpNm#,#BsnsPersonEmpNo#,#BsnsPersonEmpNm#,#Ip#,#hostName#,#osVer#,now())
 		ON DUPLICATE KEY UPDATE
 		assetNoSch=#ciNo#,
 		assetStatCd=#HwStatCode#,
