@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="selectTmanManager" resultClass="com.frentree.pimc.database.ibatis.vo.targetUserVo">
-		SELECT 
+		<!-- SELECT 
 			T.TARGET_ID, 
 			ST.HOSTNM,
 			ST.MAINIPADDR AS IP, 
@@ -23,6 +23,57 @@
 		FROM pi_ap_server AP, skt_toms ST
 			LEFT OUTER JOIN pi_targets T ON ST.HOSTNM = T.name
 		WHERE T.AP_NO = AP.AP_NO
-		 AND AP.IS_SERVER = 1
+		 AND AP.IS_SERVER = 1 -->
+		SELECT 
+		    T.TARGET_ID, 
+		    T.AP_NO,
+		    ST.HOSTNM,
+		    ST.MAINIPADDR AS IP,
+		    ST.SVCNO, 
+		    ST.SVCNM,
+		    ST.BPINFRAUSERID AS USER_NO,
+		    1 AS USERFLAG
+		FROM pi_ap_server AP, skt_toms ST
+			LEFT OUTER JOIN pi_targets T ON ST.HOSTNM = T.name
+		WHERE T.AP_NO = AP.AP_NO
+		AND AP.IS_SERVER = 1
+		AND ST.BPINFRAUSERID IS NOT NULL
+		UNION ALL
+		SELECT 
+		    T.TARGET_ID, 
+		    T.AP_NO,
+		    ST.HOSTNM,
+		    ST.MAINIPADDR AS IP,
+		    ST.SVCNO, 
+		    ST.SVCNM,
+		    ST.BPAPPUSERID AS USER_NO,
+		    2 AS USERFLAG
+		FROM pi_ap_server AP, skt_toms ST
+			LEFT OUTER JOIN pi_targets T ON ST.HOSTNM = T.name
+		WHERE T.AP_NO = AP.AP_NO
+		AND AP.IS_SERVER = 1
+		AND ST.BPAPPUSERID IS NOT NULL
+		UNION ALL
+		SELECT 
+		    T.TARGET_ID, 
+		    T.AP_NO,
+		    ST.HOSTNM,
+		    ST.MAINIPADDR AS IP,
+		    ST.SVCNO, 
+		    ST.SVCNM,
+		    ST.SKTAPPUSERID AS USER_NO,
+		    3 AS USERFLAG
+		FROM pi_ap_server AP, skt_toms ST
+			LEFT OUTER JOIN pi_targets T ON ST.HOSTNM = T.name
+		WHERE T.AP_NO = AP.AP_NO
+		AND AP.IS_SERVER = 1
+		AND ST.SKTAPPUSERID IS NOT NULL
+	</select>
+	
+	<select id="selectChangeFlag" parameterClass="com.frentree.pimc.database.ibatis.vo.targetUserVo" resultClass="String">
+		SELECT changeFlag
+		FROM PI_TARGET_USER
+		WHERE TARGET_ID = #target_id#
+		AND USERFLAG = #userFlag#
 	</select>
 </sqlMap>

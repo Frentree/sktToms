@@ -78,4 +78,16 @@
 		regdate=NOW()
 	</insert>
 	
+	<insert id="setTmanUpdate" parameterClass="com.frentree.pimc.database.ibatis.vo.targetUserVo">
+		INSERT INTO PI_TARGET_USER
+		(target_id, ap_no, user_no, service_code, service_nm, regdate, userFlag, changeFlag)
+		VALUES 
+		(#target_id#, #ap_no#, #user_no#, #svcNo#, #svcNm#, NOW(), #userFlag#, 'N')
+		ON DUPLICATE KEY UPDATE
+		user_no=#user_no#,
+		service_code=#svcNo#,
+		service_nm=#svcNm#,
+		regdate=NOW()
+	</insert>
+	
 </sqlMap>

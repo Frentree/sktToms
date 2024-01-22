@@ -38,8 +38,9 @@ public class tomsMain {
 		
 		logger.info(">> Process ID :" + AppConfig.getPID());
 		logger.info(">> Home Dir :" + AppConfig.currentDir);
-		logger.info(">> System Version  2022-11-16");
-		logger.info(">> Toms Update");
+		logger.info(">> System Version  2024-01-18");
+		logger.info(">> 1. Toms Update");
+        logger.info(">> 2. Target User Table Change");
 		
 		queue = new QueueStaticPool().getJobQueue();
 		

@@ -71,37 +71,12 @@ public class TmanJobs {
 			stList = this.sqlMap.queryForList("query.selectTmanManager");
 			
 			for(targetUserVo stVo : stList) {
+				String chkFlag = (String) this.sqlMap.queryForObject("query.selectChangeFlag", stVo);
 				
-				targetUserVo vo = new targetUserVo();
+				if (chkFlag == null || "N".equals(chkFlag)) {
+					tr.setDBInsertTable("insert.setTmanUpdate", stVo);
+		        }
 				
-				String service_nm = stVo.getSvcNm();
-				String user_no = stVo.getBpInfraUserId();
-				String service_user = stVo.getBpAppUserId(); 
-				String infra_manager = stVo.getSktAppUserId();
-				
-				if(service_nm!=null && !service_nm.equals("")) {
-					vo.setSvcNm(service_nm);
-					vo.setTarget_id(stVo.getTarget_id());
-					tr.setDBInsertTable("update.setTargetUserServiceNm", vo);
-				}
-				
-				if(user_no!=null && !user_no.equals("")) {
-					vo.setBpInfraUserId(user_no);
-					vo.setTarget_id(stVo.getTarget_id());
-					tr.setDBInsertTable("update.setTargetUserBpInfra", vo);
-				}
-				
-				if(service_user!=null && !service_user.equals("")) {
-					vo.setBpAppUserId(service_user);
-					vo.setTarget_id(stVo.getTarget_id());
-					tr.setDBInsertTable("update.setTargetUserBpApp", vo);
-				}
-				
-				if(infra_manager!=null && !infra_manager.equals("")) {
-					vo.setSktAppUserId(infra_manager);
-					vo.setTarget_id(stVo.getTarget_id());
-					tr.setDBInsertTable("update.setTargetUserSKTApp", vo);
-				}
 			}
 			
 		} catch (SQLException e) {
